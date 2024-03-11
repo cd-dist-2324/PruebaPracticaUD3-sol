@@ -12,19 +12,24 @@ public class Prueba_UD3 {
 
         if (entrada != null) {
 
-            if (entrada[0] == '+') {
-                char[] entradaCopia = new char[entrada.length - 1];
-                System.arraycopy(entrada, 1, entradaCopia, 0, entrada.length - 1);
-                entrada = entradaCopia;
+            if (entrada.length > 0) {
+                if (entrada[0] == '+') {
+                    char[] entradaCopia = new char[entrada.length - 1];
+                    // Creamos una copia del array original quitando la primera posición
+                    System.arraycopy(entrada, 1, entradaCopia, 0, entrada.length - 1);
+                    entrada = entradaCopia;
 
-            }
-            if (entrada[0] == '-') {
-                throw new Exception(NEGATIVE_INT_MESSAGE);
+                }
+                if (entrada[0] == '-') {
+                    throw new Exception(NEGATIVE_INT_MESSAGE);
+                }
             }
             longitud = entrada.length;
             for (int i = 0; i < longitud; i++) {
-                /* parseInt puede lanzar NumberFormatException -
-                 si la cadena de entrada no es convertible a un entero*/                 
+                /*
+                 * parseInt puede lanzar NumberFormatException -
+                 * si la cadena de entrada no es convertible a un entero
+                 */
                 digitoEntero = Integer.parseInt(String.valueOf(entrada[i]));
                 numero += digitoEntero * Math.pow(10, longitud - 1 - i);
 
